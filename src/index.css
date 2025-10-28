@@ -1,0 +1,59 @@
+/* src/index.css */
+
+/* === 1. Tailwind CSS Foundation === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === 2. Custom Animated Gradient (नई हरी थीम के साथ) === */
+.bg-animated-gradient {
+  background: linear-gradient(to right, #00bf8f, #008f6f, #00bf8f);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+}
+
+.text-animated-gradient {
+  background: linear-gradient(to right, #00bf8f, #008f6f, #00bf8f);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === 3. Custom Hover Effects (नई थीम के साथ) === */
+.hover-gradient-text:hover {
+  background: linear-gradient(to right, #00bf8f, #008f6f, #00bf8f);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease infinite;
+}
+
+.hover-gradient-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(to right, #00bf8f, #008f6f, #00bf8f);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hover-gradient-border:hover::before {
+  opacity: 1;
+}
